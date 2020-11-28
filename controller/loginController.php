@@ -1,12 +1,11 @@
 <?php
-
-require('./model/userModel.php');
-require("./model/dbconnModel.php"); 
+require("../model/dbconnModel.php"); 
+require("../model/userModel.php");
 
 $conn = new dbconnModel();
 
-$user = $_POST['username'];
-$pass = $_POST['password'];
+$user = 'user2';
+$pass = 'pass2';
 
 
 $cred = new userModel($user,$pass);

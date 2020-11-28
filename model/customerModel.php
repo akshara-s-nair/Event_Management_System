@@ -8,7 +8,16 @@ class customerModel{
     private $address;
 
 
-    function __construct($fname,$lname,$aadhar,$city,$phone,$address)
+    function __construct($id)
+    {
+        $this->fname=$fname;
+        $this->lname=$lname;
+        $this->aadhar = $aadhar;
+        $this->city = $city;
+        $this->phone = $phone;
+        $this->address = $address;
+    }
+    function register($fname,$lname,$aadhar,$city,$phone,$address)
     {
         $this->fname=$fname;
         $this->lname=$lname;
@@ -20,7 +29,7 @@ class customerModel{
 
     public function addCustomer(dbconnModel $con){
         $stmp = $con->db->prepare("INSERT INTO customer ( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES ( ?, ?, ?, ?, ?, ?)");
-        $stmp->bind_param("ssssis",$fname,$lname,$aadhar,$city,$phone,$address);
+        $stmp->bind_param("ssssss",$fname,$lname,$aadhar,$city,$phone,$address);
         if ($stmp->execute()){
             returnId($con);
         }

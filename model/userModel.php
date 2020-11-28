@@ -9,7 +9,7 @@ class userModel{
         $this->p_word=$pass;
         $this->logged_in = false;
     }
-     public function login(dbconnModel $con)
+     public function login( $con)
     {   
         $stmp = $con->db->prepare("SELECT * FROM user WHERE USER_ID=? AND PASSWORD=?");
         $stmp->bind_param("ss",$u,$p);
