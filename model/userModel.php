@@ -11,7 +11,7 @@ class userModel{
     }
      public function login(dbconnModel $con)
     {   
-        $stmp = $this->db->prepare("SELECT * FROM user WHERE USER_ID=? AND PASSWORD=?");
+        $stmp = $con->db->prepare("SELECT * FROM user WHERE USER_ID=? AND PASSWORD=?");
         $stmp->bind_param("ss",$u,$p);
         $u = $this->u_name;
         $p = $this->p_word;
