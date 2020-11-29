@@ -208,8 +208,16 @@ Logout  </a>
   <button id="search" class="btn btn-primary">Search</button>
   </div>
 
-  <table>
-<!-- here goes our data! -->
+  <table id="tblData">
+  <tr>
+    <th>Customer ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Aadhaar No.</th>
+    <th>Phone No.</th>
+    <th>House name</th>
+    <th>City name</th>
+  </tr>
 </table>
 
 </div>
@@ -275,33 +283,15 @@ Logout  </a>
       }
 
       function display(res){
-        let table = document.querySelector("table");
-        let data = Object.keys(res[0]);
-        generateTableHead(table, data);
-        generateTable(table, res);
+        let table = document.querySelector("#tblData");
+        res.forEach(function(row){
+          let rowObj = JSON.parse(row);
+          let tr = document.createElement("tr")
+          tr.innerHTML = "<td>"+rowObj.CUST_ID+"</td>"+rowObj.FIRST_NAME+"<td>"+rowObj.LAST_NAME+"</td>"+rowObj.AADHAR_NUM+"<td>"+rowObj.CUST_PHONE+"</td>"+rowObj.HOUSE_NAME+"<td>"+rowObj.CITY_NAME; 
+          table.appendChild(tr);
+        });
       }
 
-      function generateTableHead(table, data) {
-        let thead = table.createTHead();
-        let row = thead.insertRow();
-        for (let key of data) {
-          let th = document.createElement("th");
-          let text = document.createTextNode(key);
-          th.appendChild(text);
-          row.appendChild(th);
-        }
-      }
-
-      function generateTable(table, data) {
-        for (let element of data) {
-          let row = table.insertRow();
-          for (key in element) {
-            let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
-          }
-        }
-      }
 
       
       

@@ -17,20 +17,22 @@ class customerdetailsModel implements JsonSerializable{
         $this->address = $address;
         $this->con = $conn;
     }
-    function __construct($id=false,$conn)
+    function __construct($id=false,$conn=false)
     {
             $this->con = $conn;
-
-            $data = getrow($id,$this->con);
-            if($data){
-            $this->fname = $data['FIRST_NAME'];
-            $this->lname = $data['LAST_NAME'];
-            $this->aadhar = $data['AADHAR_NUM'];
-            $this->city = $data['CITY_NAME'];
-            $this->phone = $data['CUST_PHONE'];
-            $this->address = $data['HOUSE_NAME'];
-            $this->cust_id = $id;
+            if($id){
+                $data = getrow($id,$this->con);
+                if($data){
+                $this->fname = $data['FIRST_NAME'];
+                $this->lname = $data['LAST_NAME'];
+                $this->aadhar = $data['AADHAR_NUM'];
+                $this->city = $data['CITY_NAME'];
+                $this->phone = $data['CUST_PHONE'];
+                $this->address = $data['HOUSE_NAME'];
+                $this->cust_id = $id;
+                }
             }
+            
             
 
 
