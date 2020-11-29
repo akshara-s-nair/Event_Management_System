@@ -4,12 +4,12 @@ require("../model/customerModel.php");
 
 $conn = new dbconnModel();
 
-$fname = '131';
-$lname = '1212';
-$aadhar = '121212';
-$phone = '121212';
-$city = '121212';
-$address = '1212121';
+$fname = $_GET['username'];
+$lname = $_GET['username'];
+$aadhar = $_GET['username'];
+$phone = $_GET['username'];
+$city = $_GET['username'];
+$address = $_GET['username'];
 
 
 $cred = new customerModel($fname,$lname,$aadhar,$city,$phone,$address);

@@ -36,14 +36,12 @@ class customerModel{
         $address = $this->address;
         $city = $this->city;
         $phone = $this->phone;
-
-        echo ($stmp)?'true' :'false';
         
         if ($stmp->execute()){
             $this->returnId($con);
         }
         else{
-            return '1234';
+            return 'false';
         }
         $stmp->close();
 
