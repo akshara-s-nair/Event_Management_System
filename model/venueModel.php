@@ -3,21 +3,28 @@ class venueDecModel{
     private $venue_name;
     private $venue_city;
     private $max_capacity;
-    private $cost;
+    private $vcost;
     private $conn;
     private $dectype;
     private $flower;
     private $cost;
 
 
-    function __construct(dbconnModel $con)
+    function __construct(dbconnModel $con , $dectype, $flower, $vcost ,$venue_name,$venue_city, $max_capacity, $cost)
     {
         $this->conn = $con;
+        $this->dectype = $dectype;
+        $this->flower= $flower;
+        $this->cost = $cost;
+        $this->vcost = $vcost;
+        $this->venue_name = $venue_name;
+        $this->venue_city = $venue_city;
+        $this->max_capacity = $max_capacity;
     }
     public function venue(){
 
         $stmp = $conn->db->prepare("INSERT INTO venue (VENUE_NAME, VENUE_ADDRESS,MAX_CAPACITY, COST_PER_HOUR) VALUES (?, ?, ?, ?)");
-        $stmp->bind_param("ssss",$this->venue_name,$this->venue_city,$this->max_capacity,$this->cost);
+        $stmp->bind_param("ssss",$this->venue_name,$this->venue_city,$this->max_capacity,$this->vcost);
         $stmp->execute();
 		$res = $stmp->get_result();
         $stmp->close();
