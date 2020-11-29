@@ -271,6 +271,7 @@ Logout  </a>
             icon: "warning",
             dangerMode: true,
             });
+            
         }
         else{
           swal({
