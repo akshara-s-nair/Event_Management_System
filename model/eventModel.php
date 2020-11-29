@@ -26,29 +26,29 @@ class eventModel {
     public $con = $conn;
 
     function __construct($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$tNonVeg,$phCost){
-        $this->$fname = ;
-        $this->$lname = ;
-        $this->$aadhar = ;
-        $this->$phone = ;
-        $this->$city = ;
-        $this->$address = ;
-        $this->$date = ;
-        $this->$time = ;
-        $this->$vName = ;
-        $this->$vCity = ;
-        $this->$vMax = ;
-        $this->$vCHP = ;
-        $this->$noPeople = ;
-        $this->$nonVeg = ;
-        $this->$tNonVeg = ;
-        $this->$veg = ;
-        $this->$tVeg = ;
-        $this->$dType = ;
-        $this->$flType = ;
-        $this->$dCost = ;
-        $this->$phNo = ;
-        $this->$tNonVeg = ;
-        public $phCost = ; 
+        $this->$fname = $fname;
+        $this->$lname = $lname;
+        $this->$aadhar = $aadhar;
+        $this->$phone = $phone;
+        $this->$city = $city;
+        $this->$address = $address;
+        $this->$date = $date;
+        $this->$time = $time;
+        $this->$vName = $vName;
+        $this->$vCity = $vCity;
+        $this->$vMax =$vMax ;
+        $this->$vCHP = $vCHP;
+        $this->$noPeople = $noPeople;
+        $this->$nonVeg = $nonVeg;
+        $this->$tNonVeg = $tNonVeg;
+        $this->$veg = $veg;
+        $this->$tVeg = $tVeg;
+        $this->$dType = $dType;
+        $this->$flType = $flType;
+        $this->$dCost = $dCost;
+        $this->$phNo = $phNo ;
+        $this->$tNonVeg =$tNonVeg ;
+        public $phCost =$phCost ; 
     }
     public function addData(){
         $newCust = new customerdetailsModel();
