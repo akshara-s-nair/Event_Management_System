@@ -6,6 +6,7 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script type="text/javascript" src="sweetalert.min.js"></script>
 
 <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
@@ -36,7 +37,7 @@
 
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-     <form class="form-signin">
+     <div class="form-signin">
         <h2 class="form-signin-heading">Login</h2>
         <div class="form-group">
         <input name="username" type="text"  tabindex="1" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
@@ -69,11 +70,10 @@
 </div>
     </div>
     <script>
-function Usercheck(e)
+function Usercheck()
      {
-            e.preventDefault();
-             var name = document.getElementById("username").value;
-             var pass = document.getElementById("password").value;
+             var name = document.getElementById("inputEmail").value;
+             var pass = document.getElementById("inputPassword").value;
              var Req;
              try{
                  Req = new XMLHttpRequest();
@@ -87,18 +87,18 @@ function Usercheck(e)
          Req.send();
          Req.onreadystatechange = function() {
              if(this.readyState == 4 && this.status == 200){
-                 if(this.responseText==1)
+                 if(this.responseText=== 'true')
                      {
-                         // window.location = "home.php";
+                         window.location = "home.php";
                      }
                  else{
 					 // sweet alert
-		swal({
+                     swal({
   title: "Oops!",
   text: "Seems like you have entered a wrong username or password, Please review your credentials",
   icon: "warning",
   dangerMode: true,
-})
+});
              } 
          }
      }
