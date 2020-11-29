@@ -11,7 +11,7 @@ class searchModel{
     }
 
     public function search(){
-        $stmt = $con->db->prepare("SELECT * FROM $this->table WHERE ");
+        $stmt = $con->db->prepare("SELECT * FROM ($this->table) WHERE ");
         $
     }
 }
