@@ -126,7 +126,7 @@ Logout  </a>
                   </div>
                   <div class="form-group col-6">
                   
-                    <input type="text" class="form-control" id="Non_veg" placeholder="No. of non veg">
+                    <input type="text" class="form-control" id="non_veg" placeholder="No. of non veg">
                   </div>
                   <div class="form-group col-sm-6">
                     <input type="text" class="form-control" id="C_non_veg" placeholder="Cost per plate">
@@ -149,14 +149,14 @@ Logout  </a>
               <div class="card-body">
                 <div class="form-row">
                   <div class="form-group col-6">
-                    <input type="text" class="form-control" id="dectype" placeholder="Decoration Type">
+                    <input type="text" class="form-control" id="dType" placeholder="Decoration Type">
                   </div>
                   <div class="form-group col-6" >
                    <div class="form-group col-sm-6">
-                     <input type="text" class="form-control" id="flwrType" placeholder="Flower type">
+                     <input type="text" class="form-control" id="flType" placeholder="Flower type">
                     </div>
                     <div class="form-group col-sm-6">
-                      <input type="text" class="form-control" id="dcost" placeholder="Cost">
+                      <input type="text" class="form-control" id="dCost" placeholder="Cost">
                   </div>
 
                   
