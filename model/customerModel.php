@@ -7,7 +7,6 @@ class customerModel{
     private $city;
     private $address;
 
-
     function __construct($id)
     {
         $this->fname=$fname;
@@ -28,7 +27,7 @@ class customerModel{
     }
 
     public function addCustomer(dbconnModel $con){
-        $stmp = $con->db->prepare("INSERT INTO customer ( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES ( ?, ?, ?, ?, ?, ?)");
+        $stmp = $con->prepare("INSERT INTO customer ( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES ( ?, ?, ?, ?, ?, ?)");
         $stmp->bind_param("ssssss",$fname,$lname,$aadhar,$city,$phone,$address);
         if ($stmp->execute()){
             returnId($con);
@@ -37,17 +36,17 @@ class customerModel{
             return false;
         }
         $stmp->close();
-        $con->db->close();
+        $con->close();
 
     }
 
     public function returnId(dbconnModel $con){
-        $s = $con->db->prepare("SELECT CUST_ID FROM customer WHERE AADHAR_NUM = ?");
+        $s = $con->prepare("SELECT CUST_ID FROM customer WHERE AADHAR_NUM = ?");
         $s->bind_param("s",$aadhar);
         $s->execute();
 		$res = $s->get_result();
         $s->close();
-        $con->db->close();
+        $con->close();
     }
 
 }

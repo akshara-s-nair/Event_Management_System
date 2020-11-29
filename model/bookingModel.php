@@ -16,7 +16,7 @@ class bookingModel{
     }
 
     public function newBooking(dbconnModel $con){
-        $stmp = $con->db->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?, ?)");
+        $stmp = $con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?, ?)");
         $stmp->bind_param("ssss",$cust_id,$date,$time,$no_of_people);
         if ($stmp->execute()){
             returnId($con);
@@ -25,17 +25,16 @@ class bookingModel{
             return false;
         }
         $stmp->close();
-        $con->db->close();
-
+        $con->close();
     }
 
     public function returnId(dbconnModel $con){
-        $s = $con->db->prepare("SELECT BOOKING_ID FROM booking WHERE CUST_iD = ?");
+        $s = $con->prepare("SELECT BOOKING_ID FROM booking WHERE CUST_iD = ?");
         $s->bind_param("s",$this->cust_id);
         $s->execute();
 		$res = $s->get_result();
         $s->close();
-        $con->db->close();
+        $con->close();
     }
 
 }
