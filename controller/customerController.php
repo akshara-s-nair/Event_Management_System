@@ -1,7 +1,7 @@
 <?php
 require("../model/dbconnModel.php"); 
 require("../model/bookingModel.php"); 
-require("../model/customerModel.php");
+require("../model/customerdetailsModel.php");
 
 $conn = new dbconnModel();
 
@@ -16,7 +16,7 @@ $date = $_GET['date'];
 $time = $_GET['time'];
 $noPeople = $_GET['no'];
 
-$newCust = new customerModel();
+$newCust = new customerdetailsModel();
 $newCust->register($fname,$lname,$aadhar,$city,$phone,$address,$conn->db);
 echo json_encode($newCust);
 $cust_id = $newCust->get_cust_id();

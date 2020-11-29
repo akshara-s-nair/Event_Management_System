@@ -39,6 +39,10 @@ class bookingModel{
         return $res_array['BOOKING_ID'];
         
     }
+    function get_book_id()
+    {
+        return $this->booking_id;
+    }
 
 }
 
