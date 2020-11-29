@@ -102,7 +102,7 @@ function Usercheck()
                  return false;
              }
          
-         Req.open("GET","/controller/loginController.php?name="+name+"&pass="+pass,true);
+         Req.open("POST","/controller/loginController.php?name="+name+"&pass="+pass,true);
          Req.send();
          Req.onreadystatechange = function() {
              if(this.readyState == 4 && this.status == 200){
