@@ -46,10 +46,6 @@ class customerModel implements JsonSerializable{
         $address = $this->address;
         $city = $this->city;
         $phone = $this->phone;
-<<<<<<< HEAD
-=======
-        
->>>>>>> 07e60f48b6aa5a5f133226e29f0e538577a582ea
         if ($stmp->execute()){
             $this->$usr_id = $this->returnId($con);
         }
