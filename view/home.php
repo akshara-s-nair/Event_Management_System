@@ -241,6 +241,15 @@ Logout  </a>
         ajax(reqobj,"/controller/eventController.php?data=", respond)
 
       });
+
+      document.getElementById('search').addEventListener('click', function(){
+        var reqobj = new Object();
+        reqobj.fname = document.getElementById("fname").value;
+        reqobj.lname = document.getElementById("lname").value;
+        ajax(reqobj,"/controller/searchController.php?data=", display)
+
+      });
+
       function respond(res){
         if(JSON.parse(res).data === 'true'){
           swal({

@@ -4,10 +4,12 @@ require("../model/findallModel.php");
 
 $conn = new dbconnModel();
 
-$fname = $_GET['fname'];
-$lanme = $_GET['lname'];
+$reqRaw = $_GET['data'];
+$reqObj = json_encode();
 
-$res = searchUser($fname,$lname,$conn);
+$res = searchUser($reqObj->['fname'],$reqObj->['lname'],$conn);
+
+echo $res;
 
 $conn->db->close();
 
