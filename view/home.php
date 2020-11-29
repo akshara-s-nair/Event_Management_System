@@ -15,7 +15,7 @@ if (!isset($_SESSION['cust_id'])) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script type="text/javascript" src="sweetalert.min.js"></script>
 </head>
 <body>
   <center>  WELCOME </center>
@@ -263,12 +263,13 @@ Logout  </a>
       });
 
       function respond(res){
-        let resobj = JSON.parse(res);
+        let resobj = JSON.parse(JSON.stringify(res));
+        console.log(res);
         if(resobj.data === 'true'){
           swal({
             title: "Yeaay!",
             text: "Success",
-            icon: "warning",
+            icon: "success",
             dangerMode: true,
             });
             
@@ -276,7 +277,7 @@ Logout  </a>
         else{
           swal({
             title: "Oops!",
-            text: "Seems like you have entered a wrong username or password, Please review your credentials",
+            text: "Something is wrong",
             icon: "warning",
             dangerMode: true,
             });

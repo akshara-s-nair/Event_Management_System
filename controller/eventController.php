@@ -31,7 +31,7 @@ $phCost = $reqObj->phCost;
 
 $newEvent = new eventModel($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$phCost,$conn);
 $newEvent->pushData();
-echo "{data:'true'}";
+echo '{"data":"true"}';
 $conn->close();
 
 ?>
