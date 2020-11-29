@@ -7,7 +7,7 @@ $conn = new dbconnModel();
 $reqRaw = $_GET['data'];
 $reqObj = json_encode();
 
-$res = searchUser($reqObj->['fname'],$reqObj->['lname'],$conn);
+$res = searchUser($reqObj->fname,$reqObj->lname,$conn);
 
 echo $res;
 

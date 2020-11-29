@@ -3,7 +3,7 @@ require("../model/dbconnModel.php");
 require("../model/eventModel.php");
 
 $conn = new dbconnModel();
-$reqRaw = $_GETdata;
+$reqRaw = $_GET['data'];
 $reqObj = json_encode();
 
 $fname = $reqObj->fname;
