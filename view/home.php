@@ -205,7 +205,7 @@ Logout  </a>
       <input type="text" class="form-control" id="lname" placeholder="Last Name">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" id="search">Search</button>
+  <button class="btn btn-primary" id="search">Search</button>
   </div>
 
 </div>
