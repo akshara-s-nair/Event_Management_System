@@ -25,7 +25,7 @@ class bookingModel{
             return false;
         }
         $stmp->close();
-        $con->close();
+        
     }
 
     public function returnId(dbconnModel $con){
@@ -34,7 +34,7 @@ class bookingModel{
         $s->execute();
 		$res = $s->get_result();
         $s->close();
-        $con->close();
+        
     }
 
 }

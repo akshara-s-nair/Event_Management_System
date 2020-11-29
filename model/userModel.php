@@ -21,14 +21,14 @@ class userModel{
         $stmp->execute();
 		$res = $stmp->get_result();
         $stmp->close();
-        $con->close();
+
         if($res->num_rows)
         {
-           $this->logged_in = true;
+           $this->logged_in = 'true';
         }
         else
         {
-            $this->logged_in = false;
+            $this->logged_in = 'false';
         }
         
     }

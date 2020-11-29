@@ -10,10 +10,6 @@ class userModel{
     {
         $this->conn = $con;
     }
-    function __destruct()
-    {
-        $this->conn->close();
-    }
     public function getVenues()
     {   
         $stmp = $conn->db->prepare("SELECT * FROM venue");

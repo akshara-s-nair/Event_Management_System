@@ -6,8 +6,9 @@ class customerModel{
     private $phone;
     private $city;
     private $address;
+    protected $usr_id;
 
-    function __construct($id)
+    function __construct($fname,$lname,$aadhar,$city,$phone,$address)
     {
         $this->fname=$fname;
         $this->lname=$lname;
@@ -26,27 +27,37 @@ class customerModel{
         $this->address = $address;
     }
 
-    public function addCustomer(dbconnModel $con){
-        $stmp = $con->prepare("INSERT INTO customer ( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES ( ?, ?, ?, ?, ?, ?)");
-        $stmp->bind_param("ssssss",$fname,$lname,$aadhar,$city,$phone,$address);
+    public function addCustomer($con){
+        $stmp = $con->prepare("INSERT into customer( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES (?,?,?,?,?,?)");
+        echo ($stmp->bind_param("ssssss",$fname,$lname,$aadhar,$address,$city,$phone))?'true':'false';
+        $fname = $this->fname;
+        $lname = $this->lname;
+        $aadhar = $this->aadhar;
+        $address = $this->address;
+        $city = $this->city;
+        $phone = $this->phone;
+
+        echo ($stmp)?'true' :'false';
+        
         if ($stmp->execute()){
-            returnId($con);
+            $this->returnId($con);
         }
         else{
-            return false;
+            return '1234';
         }
         $stmp->close();
-        $con->close();
 
     }
 
-    public function returnId(dbconnModel $con){
+    public function returnId($con){
         $s = $con->prepare("SELECT CUST_ID FROM customer WHERE AADHAR_NUM = ?");
-        $s->bind_param("s",$aadhar);
+        $s->bind_param("s",$this->aadhar);
         $s->execute();
-		$res = $s->get_result();
-        $s->close();
-        $con->close();
+        $res = $s->get_result();
+        $res_array = $res->fetch_array(MYSQLI_ASSOC);
+        echo "id:".$res_array['CUST_ID'];
+                $s->close();
+        
     }
 
 }
