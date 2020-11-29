@@ -3,7 +3,6 @@ class bookingModel{
     private $cust_id;
     private $date;
     private $time;
-    private $no_of_people;
 
     function __construct( $booking_id,$cust_id,$date,$time)
     {
@@ -16,7 +15,7 @@ class bookingModel{
 
     public function newBooking(dbconnModel $con){
         $stmp = $con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME) VALUES (?, ?, ?)");
-        $stmp->bind_param("ssss",$this->cust_id,$this->date,$this->time,$this->no_of_people);
+        $stmp->bind_param("ssss",$this->cust_id,$this->date,$this->time);
         if ($stmp->execute()){
             returnId($con);
         }
