@@ -182,8 +182,11 @@ Logout  </a>
             </div>
             <button id="submit" class="btn btn-primary">Submit</button>
         </div>
-      </div>
-  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
   <div class="tab-pane container " id="menu1">
