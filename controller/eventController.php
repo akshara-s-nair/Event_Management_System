@@ -1,28 +1,37 @@
 <?php
 require("../model/dbconnModel.php"); 
-require("../model/bookingModel.php"); 
-require("../model/customerdetailsModel.php");
+require("../model/eventModel.php");
 
 $conn = new dbconnModel();
+$reqRaw = $_GET['data'];
+$reqObj = json_encode();
 
-$fname = $_GET['fname'];
-$lname = $_GET['lname'];
-$aadhar = $_GET['aadhar'];
-$phone = $_GET['phone'];
-$city = $_GET['city'];
-$address = $_GET['house'];
+$fname = $reqObj->['fname'];
+$lname = $reqObj->['lname'];
+$aadhar = $reqObj->['aadhaar'];
+$phone = $reqObj->['mob'];
+$city = $reqObj->['address'];
+$address = $reqObj->['city'];
+$date = $reqObj->['dt'];
+$time = $reqObj->['tm'];
+$vName = $reqObj->['vName'];
+$vCity = $reqObj->['vCity'];
+$vMax = $reqObj->['vMax'];
+$vCHP = $reqObj->['vCHP'];
+$noPeople = $reqObj->['tno'];
+$nonVeg = $reqObj->['nonVeg'];
+$tNonVeg = $reqObj->['tNonVeg'];
+$veg = $reqObj->['veg'];
+$tVeg = $reqObj->['tVeg'];
+$dType = $reqObj->['dType'];
+$flType = $reqObj->['flType'];
+$dCost = $reqObj->['dCost'];
+$phNo = $reqObj->['phNo'];
+$tNonVeg = $reqObj->['tNonVeg'];
+$phCost = $reqObj->['phCost'];
 
-$date = $_GET['date'];
-$time = $_GET['time'];
-$noPeople = $_GET['no'];
-
-$newCust = new customerdetailsModel();
-$newCust->register($fname,$lname,$aadhar,$city,$phone,$address,$conn->db);
-echo json_encode($newCust);
-$cust_id = $newCust->get_cust_id();
-$newBook = new bookingModel($cust_id,$date,$time,$noPeople);
-$newBook->newBooking($conn->db);
-
+$newEvent = new eventModel($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$tNonVeg,$phCost);
+$newEvent->pushData();
 $conn->db->close();
 
 ?>

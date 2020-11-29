@@ -1,4 +1,6 @@
 <?php
+require("../model/userModel.php");
+require("../model/bookingModel.php");
 class eventModel {
     public $fname;
     public $lname;
@@ -50,7 +52,7 @@ class eventModel {
         $this->$tNonVeg = ;
         public $phCost = ; 
     }
-    public function addData(){
+    public function pushData(){
         $newCust = new customerdetailsModel();
         $newCust->register($this->fname,$this->lname,$this->aadhar,$this->city,$this->phone,$this->address);
         $cust_id = $newCust->get_cust_id();

@@ -174,29 +174,31 @@
   <script type="text/javascript" src="ajax.js"></script>
   <script type="text/javascript">
       document.getElementById('submit').addEventListener('click', function(){
-        var fname = document.getElementById("firstname").value;
-        var lname = document.getElementById("lastname").value;
-        var aadhaar= document.getElementById("aadhaar").value;
-        var mob = document.getElementById("mobile").value;
-        var addrss = document.getElementById("address").value;
-        var city = document.getElementById("city").value;
-        var dt = document.getElementById("date").value;
-        var tm = document.getElementById("time").value;
-        var vName = document.getElementById("venueName").value;
-        var vCity = document.getElementById("venueCity").value;
-        var vMax = document.getElementById("venueMax").value;
-        var cCHP = document.getElementById("venueCPH").value;
-        var tNo = document.getElementById("T_no").value;
-        var nonVeg = document.getElementById("non_veg").value;
-        var tNonVeg = document.getElementById("C_non_veg").value;
-        var veg = document.getElementById("veg").value;
-        var tVeg = document.getElementById("C_veg").value;
-        var dType = document.getElementById("dType").value;
-        var flType = document.getElementById("flType").value;
-        var dCost = document.getElementById("dCost").value;
-        var phNo = document.getElementById("photoNo").value;
-        var phCost = document.getElementById("photoCost").value;
+        var reqobj = new Object();
+        reqobj.fname = document.getElementById("firstname").value;
+        reqobj.lname = document.getElementById("lastname").value;
+        reqobj.aadhaar = document.getElementById("aadhaar").value;
+        reqobj.mob = document.getElementById("mobile").value;
+        reqobj.address = document.getElementById("address").value;
+        reqobj.city = document.getElementById("city").value;
+        reqobj.dt = document.getElementById("date").value;
+        reqobj.tm = document.getElementById("time").value;
+        reqobj.vName = document.getElementById("venueName").value;
+        reqobj.vCity = document.getElementById("venueCity").value;
+        reqobj.vMax = document.getElementById("venueMax").value;
+        reqobj.vCHP = document.getElementById("venueCPH").value;
+        reqobj.tNo = document.getElementById("T_no").value;
+        reqobj.nonVeg = document.getElementById("non_veg").value;
+        reqobj.tNonVeg = document.getElementById("C_non_veg").value;
+        reqobj.veg = document.getElementById("veg").value;
+        reqobj.tVeg = document.getElementById("C_veg").value;
+        reqobj.dType = document.getElementById("dType").value;
+        reqobj.flType = document.getElementById("flType").value;
+        reqobj.dCost = document.getElementById("dCost").value;
+        reqobj.phNo = document.getElementById("photoNo").value;
+        reqobj.phCost = document.getElementById("photoCost").value;
 
+        ajax(reqobj,"/controller/eventController.php?data=", respond)
 
       });
   </script>
