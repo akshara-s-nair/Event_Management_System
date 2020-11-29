@@ -1,5 +1,4 @@
 <?php
-require('findallModel.php');
 class customerdetailsModel implements JsonSerializable{
     private $fname;
     private $lname;
@@ -9,7 +8,7 @@ class customerdetailsModel implements JsonSerializable{
     private $address;
     protected $cust_id;
     public $con;
-    function __construct($fname,$lname,$aadhar,$city,$phone,$address,$conn){
+    function construct($fname,$lname,$aadhar,$city,$phone,$address,$conn){
         $this->fname=$fname;
         $this->lname=$lname;
         $this->aadhar = $aadhar;
@@ -18,10 +17,11 @@ class customerdetailsModel implements JsonSerializable{
         $this->address = $address;
         $this->con = $conn;
     }
-    function construct($id)
+    function __construct($id=false,$conn)
     {
-        
-            $data = getrow($id);
+            $this->con = $conn;
+
+            $data = getrow($id,$this->con);
             if($data){
             $this->fname = $data['FIRST_NAME'];
             $this->lname = $data['LAST_NAME'];
