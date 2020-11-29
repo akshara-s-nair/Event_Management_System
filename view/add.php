@@ -14,6 +14,11 @@
 <div class="row">
 
 <form>
+<div class="card">
+  <div class="card-header">
+    Customer Details
+  </div>
+  <div class="card-body">
   <div class="form-row">
     <div class="form-group col-6">
       <label for="fname">First Name</label>
@@ -34,13 +39,24 @@
     <input type="text" class="form-control" id="mobile" placeholder="9876543210">
   </div>
   </div>
- 
-  <div class="form-group">
-    <label for="inputAddress2">House Name</label>
+  <div class="form-row">
+  <div class="form-group col-sm-6">
+    <label for="inputAddress2 ">House Name</label>
     <input type="text" class="form-control" id="address" placeholder="Apartment, or floor">
   </div>
-
+  <div class="form-group col-sm-6">
+    <label for="inputAddress2 ">City</label>
+    <input type="text" class="form-control" id="city" placeholder="......">
+  </div>
+  <div>
+</div>
+</div>
 <!-- venue -->
+<div class="card">
+  <div class="card-header">
+    Venue
+  </div>
+  <div class="card-body">
 <div class="form-row">
     <div class="form-group col-6">
       <label for="fname"> Name</label>
@@ -59,11 +75,9 @@
       <label for="lname">Cost per hour</label>
       <input type="text" class="form-control" id="lastname" placeholder="Cost per hour">
     </div>
-
-
 </div>
-
-
+</div>
+</div>
 
 
   <button type="submit" class="btn btn-primary">Submit</button>
