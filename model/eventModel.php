@@ -1,6 +1,4 @@
 <?php
-require("../model/dbconnModel.php"); 
-$conn = new dbconnModel();
 class eventModel {
     public $fname;
     public $lname;
@@ -34,23 +32,23 @@ class eventModel {
         $this->$phone = ;
         $this->$city = ;
         $this->$address = ;
-        $this->$date;
-        $this->$time;
-        $this->$vName;
-        $this->$vCity;
-        $this->$vMax;
-        $this->$vCHP;
-        $this->$noPeople;
-        $this->$nonVeg;
-        $this->$tNonVeg;
-        $this->$veg;
-        $this->$tVeg;
-        $this->$dType;
-        $this->$flType;
-        $this->$dCost;
-        $this->$phNo;
-        $this->$tNonVeg;
-        public $phCost; 
+        $this->$date = ;
+        $this->$time = ;
+        $this->$vName = ;
+        $this->$vCity = ;
+        $this->$vMax = ;
+        $this->$vCHP = ;
+        $this->$noPeople = ;
+        $this->$nonVeg = ;
+        $this->$tNonVeg = ;
+        $this->$veg = ;
+        $this->$tVeg = ;
+        $this->$dType = ;
+        $this->$flType = ;
+        $this->$dCost = ;
+        $this->$phNo = ;
+        $this->$tNonVeg = ;
+        public $phCost = ; 
     }
     public function addData(){
         $newCust = new customerdetailsModel();

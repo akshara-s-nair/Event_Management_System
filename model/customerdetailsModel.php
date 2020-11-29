@@ -8,7 +8,7 @@ class customerdetailsModel implements JsonSerializable{
     private $city;
     private $address;
     protected $cust_id;
-    
+    public $con = $conn;
 
     function construct($id)
     {
@@ -27,7 +27,7 @@ class customerdetailsModel implements JsonSerializable{
 
 
     }
-    function register($fname,$lname,$aadhar,$city,$phone,$address,$con)
+    function register($fname,$lname,$aadhar,$city,$phone,$address)
     {
         $this->fname=$fname;
         $this->lname=$lname;
@@ -35,11 +35,11 @@ class customerdetailsModel implements JsonSerializable{
         $this->city = $city;
         $this->phone = $phone;
         $this->address = $address;
-        $this->addCustomer($con);
+        $this->addCustomer($this->con);
     }
 
-        private function addCustomer($con){
-        $stmp = $con->prepare("INSERT into customer( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES (?,?,?,?,?,?)");
+        private function addCustomer(){
+        $stmp = $this->con->prepare("INSERT into customer( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES (?,?,?,?,?,?)");
         $stmp->bind_param("ssssss",$fname,$lname,$aadhar,$address,$city,$phone);
         $fname = $this->fname;
         $lname = $this->lname;
@@ -58,7 +58,7 @@ class customerdetailsModel implements JsonSerializable{
     }
 
     private function returnId($con){
-        $s = $con->prepare("SELECT CUST_ID FROM customer WHERE AADHAR_NUM = ?");
+        $s = $this->con->prepare("SELECT CUST_ID FROM customer WHERE AADHAR_NUM = ?");
         $s->bind_param("s",$this->aadhar);
         $s->execute();
         $res = $s->get_result();

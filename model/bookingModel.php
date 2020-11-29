@@ -5,7 +5,7 @@ class bookingModel{
     private $time;
     private $no_of_people;
     private $booking_id;
-
+    public $con = $conn;
     function __construct( $cust_id,$date,$time,$no_of_people)
     {
         $this->cust_id=$cust_id;
@@ -15,8 +15,8 @@ class bookingModel{
         echo $cust_id.','.$date.$time.$no_of_people;
 
     }
-    public function newBooking($con){
-        $stmp = $con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?)");
+    public function newBooking(){
+        $stmp = $this->con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?)");
         $stmp->bind_param("issi",$this->cust_id,$this->date,$this->time,$this->no_of_people);
         echo "qwerty".$con->error;
         if ($stmp->execute()){
@@ -30,7 +30,7 @@ class bookingModel{
     }
 
     private function returnId($con){
-        $s = $con->prepare("SELECT BOOKING_ID FROM booking WHERE CUST_ID = ?");
+        $s = $this->con->prepare("SELECT BOOKING_ID FROM booking WHERE CUST_ID = ?");
         $s->bind_param("s",$this->cust_id);
         $s->execute();
 		$res = $s->get_result();
