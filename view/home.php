@@ -251,7 +251,8 @@ Logout  </a>
       });
 
       function respond(res){
-        if(JSON.parse(res).data === 'true'){
+        let resobj = JSON.parse(res);
+        if(resobj.data === 'true'){
           swal({
             title: "Yeaay!",
             text: "Success",
@@ -274,7 +275,7 @@ Logout  </a>
         reqobj.lname = document.getElementById("lname").value;
         ajax(reqobj,"/controller/eventController.php?data=", respond)
 
-      }
+      });
 
   </script>
 </body>
