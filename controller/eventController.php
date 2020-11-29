@@ -1,7 +1,8 @@
 <?php
 require("../model/dbconnModel.php"); 
 require("../model/eventModel.php");
-$conn = new dbconnModel();
+$con = new dbconnModel();
+$conn = $con->db;
 $reqRaw = $_GET['data'];
 $reqObj = json_decode($reqRaw);
 
@@ -26,12 +27,11 @@ $dType = $reqObj->dType;
 $flType = $reqObj->flType;
 $dCost = $reqObj->dCost;
 $phNo = $reqObj->phNo;
-$tNonVeg = $reqObj->tNonVeg;
 $phCost = $reqObj->phCost;
 
-$newEvent = new eventModel($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$tNonVeg,$phCost,$conn);
+$newEvent = new eventModel($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$phCost,$conn);
 $newEvent->pushData();
 echo "{data:'true'}";
-$conn->db->close();
+$conn->close();
 
 ?>

@@ -10,8 +10,8 @@
 
     function searchuser($firstname,$lastname,$con){
         $data_array = array();
-        $s = $con->db->prepare("SELECT CUST_ID FROM customer WHERE FIRST_NAME like ? '%' OR LAST_NAME like ? '%'");
-        $s->bind_param("ss",$firstname,$lastname);
+        $s = $con->db->prepare("SELECT CUST_ID FROM customer WHERE FIRST_NAME like ? OR LAST_NAME like ?");
+        $s->bind_param("ss",$firstname.'%',$lastname.'%');
         $s->execute();
         $res = $s->get_result();
         while ($row = mysql_fetch_assoc($res)) {

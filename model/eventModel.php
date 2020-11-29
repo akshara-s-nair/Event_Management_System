@@ -51,6 +51,8 @@ class eventModel {
         $this->$tNonVeg =$tNonVeg ;
         $this->$phCost =$phCost ; 
         $this->$con = $conn;
+        echo $this->con;
+
     }
     
     public function pushData(){
