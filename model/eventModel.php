@@ -51,8 +51,8 @@ class eventModel {
         $this->$tNonVeg =$tNonVeg ;
         $this->$phCost =$phCost ; 
         $this->$con = $conn;
-
     }
+    
     public function pushData(){
         $newCust = new customerdetailsModel($this->fname,$this->lname,$this->aadhar,$this->city,$this->phone,$this->address);
         $newCust->addCustomer();

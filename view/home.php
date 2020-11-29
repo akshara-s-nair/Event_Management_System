@@ -271,10 +271,9 @@ Logout  </a>
       }
       document.getElementById('search').addEventListener('click', function(){
         var reqobj = new Object();
-        reqobj.fname = document.getElementById("ftname").value;
+        reqobj.fname = document.getElementById("fname").value;
         reqobj.lname = document.getElementById("lname").value;
-        ajax(reqobj,"/controller/eventController.php?data=", respond)
-
+        ajax(reqobj,"/controller/searchController.php?data=", respond);
       });
 
   </script>

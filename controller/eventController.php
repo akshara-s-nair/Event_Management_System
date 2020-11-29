@@ -4,7 +4,7 @@ require("../model/eventModel.php");
 
 $conn = new dbconnModel();
 $reqRaw = $_GET['data'];
-$reqObj = json_encode($reqRaw);
+$reqObj = json_decode($reqRaw);
 
 $fname = $reqObj->fname;
 $lname = $reqObj->lname;

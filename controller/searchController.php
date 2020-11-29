@@ -5,9 +5,13 @@ require("../model/findallModel.php");
 $conn = new dbconnModel();
 
 $reqRaw = $_GET['data'];
-$reqObj = json_encode();
+$reqObj = json_decode($reqRaw);
 
-$res = searchUser($reqObj->fname,$reqObj->lname,$conn);
+
+$fname = $reqObj->fname;
+$lname = $reqObj->lname;
+
+$res = searchUser($fname,$lname,$conn);
 
 echo $res;
 
