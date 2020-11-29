@@ -1,6 +1,7 @@
 <?php
 require("../model/dbconnModel.php"); 
-require("../model/findallModel.php");
+require_once("../model/findallModel.php");
+
 
 $conn = new dbconnModel();
 
@@ -13,7 +14,7 @@ $lname = $reqObj->lname;
 
 $res = searchUser($fname,$lname,$conn);
 
-echo $res;
+echo json_encode($res);
 
 $conn->db->close();
 

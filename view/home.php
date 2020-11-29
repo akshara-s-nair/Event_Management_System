@@ -208,6 +208,10 @@ Logout  </a>
   <button id="search" class="btn btn-primary">Search</button>
   </div>
 
+  <table>
+<!-- here goes our data! -->
+</table>
+
 </div>
   </div>
 </div>
@@ -269,13 +273,38 @@ Logout  </a>
             });
         }
       }
-      document.getElementById('search').addEventListener('click', function(){
-        var reqobj = new Object();
-        reqobj.fname = document.getElementById("fname").value;
-        reqobj.lname = document.getElementById("lname").value;
-        ajax(reqobj,"/controller/searchController.php?data=", respond);
-      });
 
+      function display(res){
+        let table = document.querySelector("table");
+        let data = Object.keys(res[0]);
+        generateTableHead(table, data);
+        generateTable(table, res);
+      }
+
+      function generateTableHead(table, data) {
+        let thead = table.createTHead();
+        let row = thead.insertRow();
+        for (let key of data) {
+          let th = document.createElement("th");
+          let text = document.createTextNode(key);
+          th.appendChild(text);
+          row.appendChild(th);
+        }
+      }
+
+      function generateTable(table, data) {
+        for (let element of data) {
+          let row = table.insertRow();
+          for (key in element) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(element[key]);
+            cell.appendChild(text);
+          }
+        }
+      }
+
+      
+      
   </script>
 </body>
 </html>

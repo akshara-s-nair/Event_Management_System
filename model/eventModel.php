@@ -56,7 +56,8 @@ class eventModel {
     }
     
     public function pushData(){
-        $newCust = new customerdetailsModel($this->fname,$this->lname,$this->aadhar,$this->city,$this->phone,$this->address,$this->$con);
+        $newCust = new customerdetailsModel();
+        $newCust->construct($this->fname,$this->lname,$this->aadhar,$this->city,$this->phone,$this->address,$this->$con);
         $newCust->addCustomer();
         $cust_id = $newCust->get_cust_id();
         $newBook = new bookingModel($cust_id,$date,$time,$noPeople,$this->$con);
