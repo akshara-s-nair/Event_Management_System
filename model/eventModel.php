@@ -53,7 +53,6 @@ class eventModel {
         $this->flType = $flType;
         $this->dCost = $dCost;
         $this->phNo = $phNo ;
-        $this->tNonVeg =$tNonVeg ;
         $this->phCost =$phCost ; 
         $this->con = $conn;
     }
@@ -66,6 +65,7 @@ class eventModel {
         $newBook = new bookingModel($this->cust_id,$this->date,$this->time,$this->noPeople,$this->con);
         $newBook->newBooking();
         $this->book_id = $newBook->get_book_id();
+        $newfood = new caterModel($this->$noPeople,$this->$nonVeg,$this->tNonVeg,$this->veg,$this->tVeg,$this->con);
     }
 
 }
