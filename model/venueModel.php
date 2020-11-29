@@ -8,11 +8,7 @@ class userModel{
 
     function __construct(dbconnModel $con)
     {
-        this->$conn = $con;
-    }
-    function __destruct()
-    {
-        $conn->db->close();
+        $this->conn = $con;
     }
     public function getVenues()
     {   

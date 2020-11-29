@@ -81,15 +81,49 @@
 
 
 
-
-
-
                     </div>
                     </div>
 
 
 </div>
     </div>
+    <script>
+function Usercheck()
+     {
+         
+             var name = document.getElementById("username").value;
+             var pass = document.getElementById("password").value;
+             var Req;
+             try{
+                 Req = new XMLHttpRequest();
+             }catch (e){
+
+                 alert("ERROR (AJAX)");
+                 return false;
+             }
+         
+         Req.open("GET","/controller/loginController.php?name="+name+"&pass="+pass,true);
+         Req.send();
+         Req.onreadystatechange = function() {
+             if(this.readyState == 4 && this.status == 200){
+                 if(this.responseText==1)
+                     {
+                         window.location = "home.php";
+                     }
+                 else{
+					 // sweet alert
+		swal({
+  title: "Oops!",
+  text: "Seems like you have entered a wrong username or password, Please review your credentials",
+  icon: "warning",
+  dangerMode: true,
+})
+             } 
+         }
+     }
+     }
+
+</script>
 </body>
 
 </html>

@@ -9,6 +9,9 @@ class userModel{
         $this->p_word=$pass;
         $this->logged_in = false;
     }
+    public function loginCheck(){
+        return $this->logged_in;
+    }
      public function login( $con)
     {   
         $stmp = $con->prepare("SELECT * FROM user WHERE USER_ID=? AND PASSWORD=?");
@@ -18,14 +21,13 @@ class userModel{
         $stmp->execute();
 		$res = $stmp->get_result();
         $stmp->close();
-        $con->close();
         if($res->num_rows)
         {
-           $this->logged_in = true;
+           $this->logged_in = 'true';
         }
         else
         {
-            $this->logged_in = false;
+            $this->logged_in = 'false';
         }
         
     }
