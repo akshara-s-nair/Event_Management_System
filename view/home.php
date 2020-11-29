@@ -195,11 +195,11 @@ Logout  </a>
   <div class="form-row">
     <div class="form-group col-6">
       <label for="fname">First Name</label>
-      <input type="text" class="form-control" id="firstname" placeholder="First Name">
+      <input type="text" class="form-control" id="fname" placeholder="First Name">
     </div>
     <div class="form-group col-sm-6">
       <label for="lname">Last Name</label>
-      <input type="text" class="form-control" id="lastname" placeholder="Last Name">
+      <input type="text" class="form-control" id="lname" placeholder="Last Name">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Search</button>
