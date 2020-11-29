@@ -21,36 +21,49 @@
   <div class="card-body">
   <div class="form-row">
     <div class="form-group col-6">
-      <label for="fname">First Name</label>
       <input type="text" class="form-control" id="firstname" placeholder="First Name">
     </div>
     <div class="form-group col-sm-6">
-      <label for="lname">Last Name</label>
       <input type="text" class="form-control" id="lastname" placeholder="Last Name">
     </div>
   </div>
   <div class="form-row">
   <div class="form-group col-sm-6">
-    <label for="inputAddress">Aadhaar</label>
     <input type="text" class="form-control" id="aadhaar" placeholder="1234 5678 9870">
   </div>
   <div class="form-group col-sm-6">
-    <label for="inputAddress2">Mobile Number</label>
     <input type="text" class="form-control" id="mobile" placeholder="9876543210">
   </div>
   </div>
   <div class="form-row">
   <div class="form-group col-sm-6">
-    <label for="inputAddress2 ">House Name</label>
     <input type="text" class="form-control" id="address" placeholder="Apartment, or floor">
   </div>
   <div class="form-group col-sm-6">
-    <label for="inputAddress2 ">City</label>
     <input type="text" class="form-control" id="city" placeholder="......">
   </div>
   <div>
 </div>
 </div>
+
+<!-- booking -->
+<div class="card">
+  <div class="card-header">
+    Booking
+  </div>
+  <div class="card-body">
+<div class="form-row">
+    <div class="form-group col-6">
+      <input type="date" class="form-control" id="date" >
+    </div>
+    <div class="form-group col-sm-6">
+      <input type="text" class="form-control" id="time" placeholder="Time">
+    </div>
+</div>
+</div>
+</div>
+
+
 <!-- venue -->
 <div class="card">
   <div class="card-header">
