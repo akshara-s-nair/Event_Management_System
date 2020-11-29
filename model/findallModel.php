@@ -8,8 +8,8 @@
         return $res_array;
     }
 
-    function searchuser($firstname,$lastname){
-        $data_array = array()
+    function searchuser($firstname,$lastname,$con){
+        $data_array = array();
         $s = $con->prepare("SELECT CUST_ID FROM customer WHERE FIRST_NAME like ? OR LAST_NAME like ?");
         $s->bind_param("s",$firstname.'%',$lastname.'%');
         $s->execute();

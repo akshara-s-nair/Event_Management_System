@@ -19,7 +19,7 @@ class customerModel implements JsonSerializable{
             $this->aadhar = $data['AADHAR_NUM'];
             $this->city = $data['CITY_NAME'];
             $this->phone = $data['CUST_PHONE'];
-            $this->address = $fata['HOUSE_NAME'];
+            $this->address = $data['HOUSE_NAME'];
             $this->cust_id = $id;
             }
             
@@ -47,7 +47,7 @@ class customerModel implements JsonSerializable{
         $city = $this->city;
         $phone = $this->phone;
         if ($stmp->execute()){
-            $this->$usr_id = $this->returnId($con);
+            $this->$cust_id = $this->returnId($con);
         }
         else{
             return 'false';
@@ -67,18 +67,21 @@ class customerModel implements JsonSerializable{
         
         
     }
-    
+    function get_cust_id()
+    {
+        return $this->cust_id;
+    }
     public function jsonSerialize()
     {
         return 
         [
-            'FIRST_NAME' $this->fname;
-            'LAST_NAME' => $this->lname;
-            'AADHAR_NUM' => $this->aadhar;
-            'CUST_PHONE' => $this->phone;
-            'CITY_NAME' => $this->city;
-            'HOUSE_NAME' => $this->address;
-            'CUST_ID' => $this->usr_id;
+            'FIRST_NAME' => $this->fname,
+            'LAST_NAME' => $this->lname,
+            'AADHAR_NUM' => $this->aadhar,
+            'CUST_PHONE' => $this->phone,
+            'CITY_NAME' => $this->city,
+            'HOUSE_NAME' => $this->address,
+            'CUST_ID' => $this->usr_id
             
         ];
     }
