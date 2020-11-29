@@ -45,7 +45,7 @@ class customerdetailsModel implements JsonSerializable{
         $city = $this->city;
         $phone = $this->phone;
         if ($stmp->execute()){
-            $this->cust_id = $this->returnId($con);
+            $this->cust_id = $this->returnId();
         }
         else{
             return 'false';
@@ -54,7 +54,7 @@ class customerdetailsModel implements JsonSerializable{
 
     }
 
-    private function returnId($con){
+    private function returnId(){
         $s = $this->con->prepare("SELECT CUST_ID FROM customer WHERE AADHAR_NUM = ?");
         $s->bind_param("s",$this->aadhar);
         $s->execute();

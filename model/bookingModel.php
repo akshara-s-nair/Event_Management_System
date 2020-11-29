@@ -18,9 +18,8 @@ class bookingModel{
     public function newBooking(){
         $stmp = $this->con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?)");
         $stmp->bind_param("issi",$this->cust_id,$this->date,$this->time,$this->no_of_people);
-        echo "qwerty".$con->error;
         if ($stmp->execute()){
-            $this->booking_id = $this->returnId($con);
+            $this->booking_id = $this->returnId();
         }
         else{
             return false;
@@ -29,7 +28,7 @@ class bookingModel{
         
     }
 
-    private function returnId($con){
+    private function returnId(){
         $s = $this->con->prepare("SELECT BOOKING_ID FROM booking WHERE CUST_ID = ?");
         $s->bind_param("s",$this->cust_id);
         $s->execute();
