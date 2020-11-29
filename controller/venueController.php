@@ -14,7 +14,6 @@ $conn = new dbconnModel();
 
 $cred = new venueDecModel($conn->db, $dectype, $flower, $vcost ,$venue_name,$venue_city, $max_capacity, $cost);
 $cred->venue();
-
 $conn->db->close();
 
 ?>

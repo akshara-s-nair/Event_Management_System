@@ -79,6 +79,29 @@
 </div>
 </div>
 
+<!-- decoration -->
+<div class="card">
+  <div class="card-header">
+    Decoration
+  </div>
+  <div class="card-body">
+<div class="form-row">
+    <div class="form-group col-6">
+      <label for="fname"> Name</label>
+      <input type="text" class="form-control" id="venuename" placeholder="Decoration Type">
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="lname">City</label>
+      <input type="text" class="form-control" id="venuecity" placeholder="Cost">
+    </div>
+
+    <div class="form-group col-6">
+      <label for="fname"> Max Capacity</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Flower Cost">
+    </div>
+</div>
+</div>
+</div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 
