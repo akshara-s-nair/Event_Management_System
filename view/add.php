@@ -59,20 +59,16 @@
   <div class="card-body">
 <div class="form-row">
     <div class="form-group col-6">
-      <label for="fname"> Name</label>
       <input type="text" class="form-control" id="venuename" placeholder="Name">
     </div>
     <div class="form-group col-sm-6">
-      <label for="lname">City</label>
       <input type="text" class="form-control" id="venuecity" placeholder="City">
     </div>
 
-    <div class="form-group col-6">
-      <label for="fname"> Max Capacity</label>
+    <div class="form-group col-sm-6">
       <input type="text" class="form-control" id="firstname" placeholder="Max Capacity">
     </div>
     <div class="form-group col-sm-6">
-      <label for="lname">Cost per hour</label>
       <input type="text" class="form-control" id="lastname" placeholder="Cost per hour">
     </div>
 </div>
@@ -87,17 +83,14 @@
   <div class="card-body">
 <div class="form-row">
     <div class="form-group col-6">
-      <label for="fname"> Name</label>
-      <input type="text" class="form-control" id="venuename" placeholder="Decoration Type">
+      <input type="text" class="form-control" id="dectype" placeholder="Decoration Type">
     </div>
     <div class="form-group col-sm-6">
-      <label for="lname">City</label>
-      <input type="text" class="form-control" id="venuecity" placeholder="Cost">
+      <input type="text" class="form-control" id="dcost" placeholder="Cost">
     </div>
 
     <div class="form-group col-6">
-      <label for="fname"> Max Capacity</label>
-      <input type="text" class="form-control" id="firstname" placeholder="Flower Cost">
+      <input type="text" class="form-control" id="fcost" placeholder="Flower Cost">
     </div>
 </div>
 </div>
