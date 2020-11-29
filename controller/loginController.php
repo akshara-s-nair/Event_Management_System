@@ -10,7 +10,15 @@ $pass = $_GET['password'];
 echo $user.$pass;
 $cred = new userModel($user,$pass);
 $cred->login($conn->db);
-echo $cred->loginCheck();
+if($cred->loginCheck());
+{
+    session_start();
+    $_SESSION['cust_id'] = $cred->get_id();
+    echo 'true'
+}
+else {
+    echo false;
+}
 
 $conn->db->close();
 
