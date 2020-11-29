@@ -16,5 +16,7 @@ Req.onreadystatechange = function() {
         var resobj = JSON.parse(this.responseText);
         callback(resobj);
     }
+    else    
+        callback('false');
 }
 }

@@ -241,6 +241,24 @@ Logout  </a>
         ajax(reqobj,"/controller/eventController.php?data=", respond)
 
       });
+      function respond(res){
+        if(JSON.parse(res).data === 'true'){
+          swal({
+            title: "Yeaay!",
+            text: "Success",
+            icon: "warning",
+            dangerMode: true,
+            });
+        }
+        else{
+          swal({
+            title: "Oops!",
+            text: "Seems like you have entered a wrong username or password, Please review your credentials",
+            icon: "warning",
+            dangerMode: true,
+            });
+        }
+      }
   </script>
 </body>
 </html>
