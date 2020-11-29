@@ -12,13 +12,15 @@ class bookingModel{
         $this->date = $date;
         $this->time = $time;
         $this->no_of_people= $no_of_people;
+        echo $cust_id.','.$date.$time.$no_of_people;
 
     }
     public function newBooking($con){
-        $stmp = $con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?, ?)");
-        $stmp->bind_param("ssss",$cust_id,$date,$time,$no_of_people);
+        $stmp = $con->prepare("INSERT INTO booking (CUST_ID, DATE_EVENT, START_TIME, NO_OF_PEOPLE) VALUES (?, ?, ?, ?)");
+        $stmp->bind_param("issi",$this->cust_id,$this->date,$this->time,$this->no_of_people);
+        echo "qwerty".$con->error;
         if ($stmp->execute()){
-            $this->booking_id = returnId($con);
+            $this->booking_id = $this->returnId($con);
         }
         else{
             return false;

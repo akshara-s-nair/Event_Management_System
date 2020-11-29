@@ -25,6 +25,7 @@ class customerModel implements JsonSerializable{
             
         }
 
+
     }
     function register($fname,$lname,$aadhar,$city,$phone,$address,$con)
     {
@@ -81,7 +82,7 @@ class customerModel implements JsonSerializable{
             'CUST_PHONE' => $this->phone,
             'CITY_NAME' => $this->city,
             'HOUSE_NAME' => $this->address,
-            'CUST_ID' => $this->usr_id
+            'CUST_ID' => $this->cust_id
             
         ];
     }
