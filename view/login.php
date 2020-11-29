@@ -36,7 +36,7 @@
 
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-     <form method="post" action="login.php" class="form-signin">
+     <form class="form-signin">
         <h2 class="form-signin-heading">Login</h2>
         <div class="form-group">
         <input name="username" type="text"  tabindex="1" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
@@ -45,7 +45,7 @@
 
         <input name="password" type="password"  tabindex="1" id="inputPassword" class="form-control" placeholder="Password" required>
 </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block" onclick="Usercheck()" >Submit</button>
       </form>
     </div>
       
@@ -55,25 +55,6 @@
       
     <div id="menu1" class="tab-pane fade">
 
-    <form method="post" action="register.php" class="form-signin">
-
-    <h2 class="form-signin-heading">Register</h2>
-
-    <div class="form-group">
-    <input type="text" name="username" id="reg" tabindex="1" class="form-control" placeholder="User Name" value="">
-    </div>
-<div class="form-group">
-<input type="text" name="email" id="name" tabindex="1" class="form-control" placeholder="Email" value="">
-</div>
-									
-<div class="form-group">
-<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-</div>
-									<div class="form-group">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-</div>
-<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-      </form>
 </div>
 
 
@@ -88,9 +69,9 @@
 </div>
     </div>
     <script>
-function Usercheck()
+function Usercheck(e)
      {
-         
+            e.preventDefault();
              var name = document.getElementById("username").value;
              var pass = document.getElementById("password").value;
              var Req;
@@ -108,7 +89,7 @@ function Usercheck()
              if(this.readyState == 4 && this.status == 200){
                  if(this.responseText==1)
                      {
-                         window.location = "home.php";
+                         // window.location = "home.php";
                      }
                  else{
 					 // sweet alert

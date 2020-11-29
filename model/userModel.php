@@ -23,11 +23,11 @@ class userModel{
         $stmp->close();
         if($res->num_rows)
         {
-           $this->logged_in = 'true';
+           $this->logged_in = true;
         }
         else
         {
-            $this->logged_in = 'false';
+            $this->logged_in = false;
         }
         
     }
@@ -35,7 +35,10 @@ class userModel{
     {
         return $this->logged_in;
     }
-
+    function get_id()
+    {
+        return $this->u_name;
+    }
     public function logout(){
         if($_SESSION['login']){
         $_SESSION['login'] = false;
