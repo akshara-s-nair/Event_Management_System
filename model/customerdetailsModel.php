@@ -9,7 +9,7 @@ class customerdetailsModel implements JsonSerializable{
     private $address;
     protected $cust_id;
     public $con;
-    function __construct(($fname,$lname,$aadhar,$city,$phone,$address){
+    function __construct($fname,$lname,$aadhar,$city,$phone,$address,$conn){
         $this->fname=$fname;
         $this->lname=$lname;
         $this->aadhar = $aadhar;
@@ -35,7 +35,7 @@ class customerdetailsModel implements JsonSerializable{
 
 
     }
-        private function addCustomer(){
+        public function addCustomer(){
         $stmp = $this->con->prepare("INSERT into customer( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES (?,?,?,?,?,?)");
         $stmp->bind_param("ssssss",$fname,$lname,$aadhar,$address,$city,$phone);
         $fname = $this->fname;

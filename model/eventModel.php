@@ -1,7 +1,8 @@
 <?php
-require("../model/userModel.php");
+require("../model/customerdetailsModel.php");
 require("../model/bookingModel.php");
 class eventModel {
+    public $con;
     public $fname;
     public $lname;
     public $aadhar;
@@ -23,10 +24,9 @@ class eventModel {
     public $flType;
     public $dCost;
     public $phNo;
-    public $phCost; 
-    public $con;
+    public $phCost;
 
-    function __construct($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$phCost){
+    function __construct($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$phCost,$conn){
         $this->$fname = $fname;
         $this->$lname = $lname;
         $this->$aadhar = $aadhar;
@@ -54,10 +54,10 @@ class eventModel {
     }
     
     public function pushData(){
-        $newCust = new customerdetailsModel($this->fname,$this->lname,$this->aadhar,$this->city,$this->phone,$this->address);
+        $newCust = new customerdetailsModel($this->fname,$this->lname,$this->aadhar,$this->city,$this->phone,$this->address,$this->$con);
         $newCust->addCustomer();
         $cust_id = $newCust->get_cust_id();
-        $newBook = new bookingModel($cust_id,$date,$time,$noPeople);
+        $newBook = new bookingModel($cust_id,$date,$time,$noPeople,$this->$con);
         $newBook->newBooking();
     }
 
