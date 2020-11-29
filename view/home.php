@@ -202,5 +202,36 @@ Logout  </a>
 </div>
   </div>
 </div>
+<script type="text/javascript" src="ajax.js"></script>
+  <script type="text/javascript">
+      document.getElementById('submit').addEventListener('click', function(){
+        var reqobj = new Object();
+        reqobj.fname = document.getElementById("firstname").value;
+        reqobj.lname = document.getElementById("lastname").value;
+        reqobj.aadhaar = document.getElementById("aadhaar").value;
+        reqobj.mob = document.getElementById("mobile").value;
+        reqobj.address = document.getElementById("address").value;
+        reqobj.city = document.getElementById("city").value;
+        reqobj.dt = document.getElementById("date").value;
+        reqobj.tm = document.getElementById("time").value;
+        reqobj.vName = document.getElementById("venueName").value;
+        reqobj.vCity = document.getElementById("venueCity").value;
+        reqobj.vMax = document.getElementById("venueMax").value;
+        reqobj.vCHP = document.getElementById("venueCPH").value;
+        reqobj.tNo = document.getElementById("T_no").value;
+        reqobj.nonVeg = document.getElementById("non_veg").value;
+        reqobj.tNonVeg = document.getElementById("C_non_veg").value;
+        reqobj.veg = document.getElementById("veg").value;
+        reqobj.tVeg = document.getElementById("C_veg").value;
+        reqobj.dType = document.getElementById("dType").value;
+        reqobj.flType = document.getElementById("flType").value;
+        reqobj.dCost = document.getElementById("dCost").value;
+        reqobj.phNo = document.getElementById("photoNo").value;
+        reqobj.phCost = document.getElementById("photoCost").value;
+
+        ajax(reqobj,"/controller/eventController.php?data=", respond)
+
+      });
+  </script>
 </body>
 </html>
