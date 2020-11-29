@@ -1,83 +1,42 @@
 <?php
 class caterModel{
-    private $cater;
-    private $b_id;
+    private $cater_id;
+    private $book_id;
     private $no_of_people;
     private $type;
     private $cost;
-    private $non;
-    private $von;
-    private $vcost;
-    private $nvcost;
+    private $nonVeg;
+    private $veg;
+    private $vCost;
+    private $nvCost;
+    public $con;
 
-
-    function __construct($con , $cater, $b_id, $no_of_people ,$type,$cost, $non, $von,$vcost,$nvcost)
+    function __construct($b_id, $non,$nvcost, $von,$vcost,$conn)
     {
-        $this->conn = $con;
-        $this->cater = $cater;
-        $this->b_id= $b_id;
-        $this->no_of_people = $no_of_people;
-        $this->type = $type;
-        $this->cost = $cost;
-        $this->non = $non;
-        $this->von = $von;
-        $this->vcost = $vcost;
-        $this->nvcost = $nvcost;
+        $this->book_id= $b_id;
+        $this->nonVeg = $non;
+        $this->veg = $von;
+        $this->vCost = $vcost;
+        $this->nvCost = $nvcost;
+        $this->con = $conn;
     }
     public function addFood(){
 
-        $stmp = $conn->db->prepare("INSERT INTO cater (BOOKING_ID, NO_OF_PEOPLE, FOOD_TYPE, TOTAL_FOOD_COST) VALUES (?,?,?,?)");
-        $stmp->bind_param("sssi",$this->b_id,$this->no_of_people,$this->type,$this->cost);
+        $stmp = $this->con->prepare("INSERT INTO cater (BOOKING_ID, NO_OF_PEOPLE, FOOD_TYPE, COST_PER_ITEM, TOTAL_FOOD_COST) VALUES (?,?,'VEG',?,?)");
+        $stmp2 = $this->con->prepare("INSERT INTO cater (BOOKING_ID, NO_OF_PEOPLE, FOOD_TYPE, COST_PER_ITEM, TOTAL_FOOD_COST) VALUES (?,?,'NON_VEG',?,?)");
+        $stmp->bind_param("siii",$this->book_id,$this->veg,$this->vCost,$tCost1);
+        $stmp2->bind_param("siii",$this->book_id,$this->nonVeg,$this->nvCost,$tCost2);
+        $tCost1 = $this->veg + $this->vCost;
+        $tCost2 = $this->nonVeg + $this->nvCost;
         $stmp->execute();
-		$res = $stmp->get_result();
+        $stmp2->execute();
         $stmp->close();
-        if ($stmp->execute()){
-            $res = $this->returnId();
-            $this->extraFittings($res);
-        }
-        else{
-            return 'failed';
-        }
-        $stmp->close();
+        $stmp2->close();
         
     }
 
-    private function returnId(){
-        $s = $con->prepare("SELECT CATER_ID FROM cater WHERE BOOKING_ID = ?");
-        $s->bind_param("s",$this->b_id);
-        $s->execute();
-        $res = $s->get_result();
-        $s->close();
-        $res_array = $res->fetch_assoc();
-        return $res_array['CATER_ID'];
-        
-        
-    }
 
-    public function extraFittings($res){
 
-        $veg = $conn->db->prepare("INSERT INTO veg (CATER_ID, NO_OF_VEG, COST_PER_PLATE) VALUES ( ?, ?, ?)");
-        $veg->bind_param("ssi",$res,$this->von,$this->vcost);
-        $veg->execute();
-		$res = $veg->get_result();
-        $veg->close();
-
-        $nonveg = $conn->db->prepare("INSERT INTO non_veg (CATER_ID, NO_OF_NON, COST_PER_PLATE) VALUES ( ?, ?, ?)");
-        $nonveg->bind_param("ssi",$res,$this->non,$this->nvcost);
-        $nonveg->execute();
-		$res = $nonveg->get_result();
-        $nonveg->close();
-
-        if ($veg->execute() && $nonveg->execute()){
-            
-            return 'success';
-        }
-        else{
-            return 'failed';
-        }
-        $stmp->close();
-        
-    }
 
 }
 ?>

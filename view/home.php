@@ -119,11 +119,6 @@ Logout  </a>
               </div>
               <div class="card-body">
                 <div class="form-row">
-                  <div class="form-group col-12">
-                    <div class="form-group col-sm-3">
-                     <input type="text" class="form-control" id="T_no" placeholder="Total no. of people">
-                   </div>
-                  </div>
                   <div class="form-group col-6">
                   
                     <input type="text" class="form-control" id="non_veg" placeholder="No. of non veg">

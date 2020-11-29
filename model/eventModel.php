@@ -2,6 +2,15 @@
 require("../model/customerdetailsModel.php");
 require("../model/bookingModel.php");
 require("../model/caterModel.php");
+require("../model/venueModel.php");
+//  I can't .....
+function photo($no,$cost,$conn){
+    $stmp = $conn->prepare("INSERT INTO photography (NO_OF_PHOTOGRAPHERS, PHOTO_COST) VALUES (?,?)");
+    $stmp->bind_param("ii",$no,$cost);
+    $stmp->execute();
+    $stmp->close();
+    
+}
 
 class eventModel {
     public $con;
@@ -29,7 +38,7 @@ class eventModel {
     public $phCost;
     public $cust_id;
     public $book_id;
-
+    public $v_id;
 
     function __construct($fname,$lname,$aadhar,$phone,$city,$address,$date,$time,$vName,$vCity,$vMax,$vCHP,$noPeople,$nonVeg,$tNonVeg,$veg,$tVeg,$dType,$flType,$dCost,$phNo,$phCost,$conn){
         $this->fname = $fname;
@@ -65,7 +74,14 @@ class eventModel {
         $newBook = new bookingModel($this->cust_id,$this->date,$this->time,$this->noPeople,$this->con);
         $newBook->newBooking();
         $this->book_id = $newBook->get_book_id();
-        $newfood = new caterModel($this->$noPeople,$this->$nonVeg,$this->tNonVeg,$this->veg,$this->tVeg,$this->con);
+        $newfood = new caterModel($this->book_id,$this->nonVeg,$this->tNonVeg,$this->veg,$this->tVeg,$this->con);
+        $newfood->addFood();
+        $newvenue = new venueModel($this->dType,$this->flType,$this->dCost,$this->vName,$this->vCity,$this->vMax,$this->vCHP,$this->con);
+        $newvenue->addVenue();
+        $this->v_id = $newvenue->get_v_id();
+        $newvenue->decoration($this->v_id);
+        photo($this->phNo,$this->phCost,$this->con);
+       
     }
 
 }
