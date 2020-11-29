@@ -3,7 +3,6 @@ require("../model/dbconnModel.php");
 require("../model/userModel.php");
 
 $conn = new dbconnModel();
-
 $user = 'user2';
 $pass = 'pass2';
 

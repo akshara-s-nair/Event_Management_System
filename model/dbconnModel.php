@@ -11,7 +11,6 @@ class dbconnModel{
             die("Cannot connect to database <br />".mysqli_connect_error());
         }
 
-        echo $db;
     }
    
 
