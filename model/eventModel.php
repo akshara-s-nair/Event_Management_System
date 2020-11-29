@@ -1,6 +1,8 @@
 <?php
 require("../model/customerdetailsModel.php");
 require("../model/bookingModel.php");
+require("../model/caterModel.php");
+
 class eventModel {
     public $con;
     public $fname;
