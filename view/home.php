@@ -246,9 +246,28 @@ Logout  </a>
         var reqobj = new Object();
         reqobj.fname = document.getElementById("fname").value;
         reqobj.lname = document.getElementById("lname").value;
-        ajax(reqobj,"/controller/searchController.php?data=", respond)
+        ajax(reqobj,"/controller/searchController.php?data=", display)
 
       });
+
+      function respond(res){
+        if(JSON.parse(res).data === 'true'){
+          swal({
+            title: "Yeaay!",
+            text: "Success",
+            icon: "warning",
+            dangerMode: true,
+            });
+        }
+        else{
+          swal({
+            title: "Oops!",
+            text: "Seems like you have entered a wrong username or password, Please review your credentials",
+            icon: "warning",
+            dangerMode: true,
+            });
+        }
+      }
   </script>
 </body>
 </html>
