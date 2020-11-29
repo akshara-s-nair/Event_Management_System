@@ -6,7 +6,7 @@ class bookingModel{
     private $no_of_people;
     private $booking_id;
     public $con;
-    function __construct( $cust_id,$date,$time,$no_of_people)
+    function __construct( $cust_id,$date,$time,$no_of_people,$conn)
     {
         $this->cust_id=$cust_id;
         $this->date = $date;
