@@ -112,7 +112,7 @@
                   </div>
                   <div class="form-group col-6">
                   
-                    <input type="text" class="form-control" id="Non_veg" placeholder="No. of non veg">
+                    <input type="text" class="form-control" id="non_veg" placeholder="No. of non veg">
                   </div>
                   <div class="form-group col-sm-6">
                     <input type="text" class="form-control" id="C_non_veg" placeholder="Cost per plate">
@@ -135,14 +135,14 @@
               <div class="card-body">
                 <div class="form-row">
                   <div class="form-group col-6">
-                    <input type="text" class="form-control" id="dectype" placeholder="Decoration Type">
+                    <input type="text" class="form-control" id="dType" placeholder="Decoration Type">
                   </div>
                   <div class="form-group col-6" >
                    <div class="form-group col-sm-6">
-                     <input type="text" class="form-control" id="flwrType" placeholder="Flower type">
+                     <input type="text" class="form-control" id="flType" placeholder="Flower type">
                     </div>
                     <div class="form-group col-sm-6">
-                      <input type="text" class="form-control" id="dcost" placeholder="Cost">
+                      <input type="text" class="form-control" id="dCost" placeholder="Cost">
                   </div>
 
                   
@@ -173,7 +173,32 @@
   </div>
   <script type="text/javascript" src="ajax.js"></script>
   <script type="text/javascript">
+      document.getElementById('submit').addEventListener('click', function(){
+        var fname = document.getElementById("firstname").value;
+        var lname = document.getElementById("lastname").value;
+        var aadhaar= document.getElementById("aadhaar").value;
+        var mob = document.getElementById("mobile").value;
+        var addrss = document.getElementById("address").value;
+        var city = document.getElementById("city").value;
+        var dt = document.getElementById("date").value;
+        var tm = document.getElementById("time").value;
+        var vName = document.getElementById("venueName").value;
+        var vCity = document.getElementById("venueCity").value;
+        var vMax = document.getElementById("venueMax").value;
+        var cCHP = document.getElementById("venueCPH").value;
+        var tNo = document.getElementById("T_no").value;
+        var nonVeg = document.getElementById("non_veg").value;
+        var tNonVeg = document.getElementById("C_non_veg").value;
+        var veg = document.getElementById("veg").value;
+        var tVeg = document.getElementById("C_veg").value;
+        var dType = document.getElementById("dType").value;
+        var flType = document.getElementById("flType").value;
+        var dCost = document.getElementById("dCost").value;
+        var phNo = document.getElementById("photoNo").value;
+        var phCost = document.getElementById("photoCost").value;
 
+
+      });
   </script>
 
 </body>
