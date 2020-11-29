@@ -5,14 +5,14 @@ class bookingModel{
     private $time;
     private $no_of_people;
     private $booking_id;
-    public $con = $conn;
+    public $con;
     function __construct( $cust_id,$date,$time,$no_of_people)
     {
         $this->cust_id=$cust_id;
         $this->date = $date;
         $this->time = $time;
         $this->no_of_people= $no_of_people;
-        echo $cust_id.','.$date.$time.$no_of_people;
+        $this->con = $conn;
 
     }
     public function newBooking(){

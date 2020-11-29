@@ -8,8 +8,16 @@ class customerdetailsModel implements JsonSerializable{
     private $city;
     private $address;
     protected $cust_id;
-    public $con = $conn;
-
+    public $con;
+    function __construct(($fname,$lname,$aadhar,$city,$phone,$address){
+        $this->fname=$fname;
+        $this->lname=$lname;
+        $this->aadhar = $aadhar;
+        $this->city = $city;
+        $this->phone = $phone;
+        $this->address = $address;
+        $this->con = $conn;
+    }
     function construct($id)
     {
         
@@ -27,17 +35,6 @@ class customerdetailsModel implements JsonSerializable{
 
 
     }
-    function register($fname,$lname,$aadhar,$city,$phone,$address)
-    {
-        $this->fname=$fname;
-        $this->lname=$lname;
-        $this->aadhar = $aadhar;
-        $this->city = $city;
-        $this->phone = $phone;
-        $this->address = $address;
-        $this->addCustomer($this->con);
-    }
-
         private function addCustomer(){
         $stmp = $this->con->prepare("INSERT into customer( FIRST_NAME, LAST_NAME, AADHAR_NUM, HOUSE_NAME, CITY_NAME, CUST_PHONE) VALUES (?,?,?,?,?,?)");
         $stmp->bind_param("ssssss",$fname,$lname,$aadhar,$address,$city,$phone);
