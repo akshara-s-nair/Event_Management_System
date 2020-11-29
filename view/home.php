@@ -19,7 +19,7 @@ if (!isset($_SESSION['cust_id'])) {
 </head>
 <body>
   <center>  WELCOME </center>
-  <a href="logout.php" class="btn btn-danger">
+  <a href="logout.php" onclick="location.href='logout.php'" class="btn btn-danger">
 Logout  </a>
 
 
