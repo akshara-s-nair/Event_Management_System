@@ -9,7 +9,7 @@ class photoModel{
     }
     public function newBooking(dbconnModel $con){
         $stmp = $con->prepare("INSERT INTO photography ( NO_OF_PHOTOGRAPHERS, PHOTO_COST) VALUES (?, ?)");
-        $stmp->bind_param("ss",$no,$cost);
+        $stmp->bind_param("ss",$this->no,$this->cost);
         if ($stmp->execute()){
             return 'true';
         }
