@@ -205,7 +205,7 @@ Logout  </a>
       <input type="text" class="form-control" id="lname" placeholder="Last Name">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Search</button>
+  <button id="search" class="btn btn-primary">Search</button>
   </div>
 
 </div>
@@ -259,6 +259,14 @@ Logout  </a>
             });
         }
       }
+      document.getElementById('search').addEventListener('click', function(){
+        var reqobj = new Object();
+        reqobj.fname = document.getElementById("ftname").value;
+        reqobj.lname = document.getElementById("lname").value;
+        ajax(reqobj,"/controller/eventController.php?data=", respond)
+
+      }
+
   </script>
 </body>
 </html>
