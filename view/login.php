@@ -86,13 +86,8 @@ function Usercheck()
          Req.open("POST","/controller/loginController.php?name="+name+"&pass="+pass,true);
          Req.send();
          Req.onreadystatechange = function() {
-<<<<<<< HEAD
-             if(this.readyState == 4 && this.status == 200){
-                 if(this.responseText=== 'true')
-=======
              if(this.readyState === 4 && this.status === 200){
                  if(this.responseText==1)
->>>>>>> a7b43d8a18cafb09810ba7c90b0d2a609818060b
                      {
                          window.location = "home.php";
                      }
