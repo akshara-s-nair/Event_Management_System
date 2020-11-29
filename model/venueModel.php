@@ -10,8 +10,8 @@ class userModel{
     {
         $this->conn = $con;
     }
-    public function getVenues()
-    {   
+    public function getVenues(){
+           
         $stmp = $conn->db->prepare("SELECT * FROM venue");
         $stmp->execute();
 		$res = $stmp->get_result();
@@ -22,6 +22,7 @@ class userModel{
         }
         else
         {
+
         }
         
     }
