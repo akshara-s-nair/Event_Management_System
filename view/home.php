@@ -263,6 +263,7 @@ Logout  </a>
             icon: "warning",
             dangerMode: true,
             });
+            
         }
         else{
           swal({
@@ -281,7 +282,7 @@ Logout  </a>
         generateTable(table, res);
       }
 
-      function generateTableHead(table, data) {
+      function generateTableHead(table, data) {.
         let thead = table.createTHead();
         let row = thead.insertRow();
         for (let key of data) {
