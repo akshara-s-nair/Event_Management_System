@@ -19,7 +19,7 @@ $noPeople = $_GET['no'];
 $newCust = new customerModel();
 $newCust->register($fname,$lname,$aadhar,$city,$phone,$address,$conn->db);
 $cust_id = $newCust->get_cust_id();
-$newBook = new bookingModel(,$date,$time,$noPeople);
+$newBook = new bookingModel($cust_id,$date,$time,$noPeople);
 $newBook->newBooking($conn->db);
 
 $conn->db->close();

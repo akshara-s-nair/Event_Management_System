@@ -14,8 +14,8 @@ class customerModel implements JsonSerializable{
         if($id){
             $data = getrow($id);
             if($data){
-            $this->fname=$data['FIRST_NAME'];
-            $this->lname=$data['LAST_NAME'];
+            $this->fname = $data['FIRST_NAME'];
+            $this->lname = $data['LAST_NAME'];
             $this->aadhar = $data['AADHAR_NUM'];
             $this->city = $data['CITY_NAME'];
             $this->phone = $data['CUST_PHONE'];
@@ -47,7 +47,7 @@ class customerModel implements JsonSerializable{
         $city = $this->city;
         $phone = $this->phone;
         if ($stmp->execute()){
-            $this->$cust_id = $this->returnId($con);
+            $this->cust_id = $this->returnId($con);
         }
         else{
             return 'false';
