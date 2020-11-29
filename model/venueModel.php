@@ -10,7 +10,7 @@ class venueDecModel{
     private $cost;
 
 
-    function __construct(dbconnModel $con , $dectype, $flower, $vcost ,$venue_name,$venue_city, $max_capacity, $cost)
+    function __construct($con , $dectype, $flower, $vcost ,$venue_name,$venue_city, $max_capacity, $cost)
     {
         $this->conn = $con;
         $this->dectype = $dectype;
@@ -21,7 +21,7 @@ class venueDecModel{
         $this->venue_city = $venue_city;
         $this->max_capacity = $max_capacity;
     }
-    public function venue(){
+    public function addVenue(){
 
         $stmp = $conn->db->prepare("INSERT INTO venue (VENUE_NAME, VENUE_ADDRESS,MAX_CAPACITY, COST_PER_HOUR) VALUES (?, ?, ?, ?)");
         $stmp->bind_param("ssss",$this->venue_name,$this->venue_city,$this->max_capacity,$this->vcost);
@@ -40,7 +40,7 @@ class venueDecModel{
     }
 
     private function returnId(){
-        $s = $con->prepare("SELECT VENUE_ID FROM venue WHERE VENUE_NAME = ");
+        $s = $con->prepare("SELECT VENUE_ID FROM venue WHERE VENUE_NAME = ?");
         $s->bind_param("s",$this->venue_name);
         $s->execute();
         $res = $s->get_result();
@@ -71,3 +71,7 @@ class venueDecModel{
 
 }
 ?>
+
+
+
+INSERT INTO cater (BOOKING_ID, NO_OF_PEOPLE, FOOD_TYPE, TOTAL_FOOD_COST) VALUES (?,?,?,?)
